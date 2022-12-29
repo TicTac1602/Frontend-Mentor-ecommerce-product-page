@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+
+    <title>Frontend Mentor | E-commerce product page</title>
+
+    <style>
+      .attribution {
+        opacity: 0;
+        position: fixed;
+        bottom: 0;
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+      .attribution:hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="lightbox-box" onclick="looseFocus(event)"></div>
+    <header>
+      <nav>
+        <div class="menu menu-left">
+          <img src="./images/logo.svg" alt="logo" />
+          <div id="menu-links">
+            <a href="">Collections</a>
+            <a href="">Men</a>
+            <a href="">Women</a>
+            <a href="">About</a>
+            <a href="">Contact</a>
+          </div>
+        </div>
+        <div class="menu menu-right">
+          <div id="cart-container" data-value="0">
+            <img
+              src="./images/icon-cart.svg"
+              onclick="showElement('cart-component')"
+              id="cart"
+              alt="cart-icon"
+            />
+            <div id="cart-component">
+              <p>Cart</p>
+              <hr />
+              <div id="checkout-resume"></div>
+              <button>Checkout</button>
+            </div>
+          </div>
+          <img
+            src="./images/image-avatar.png"
+            alt="avatar picture"
+            class="avatar"
+          />
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section id="product-lightbox">
+        <div id="displayed-image" class="displayed-image">
+          <img
+            src="./images/image-product-1.jpg"
+            alt="image-product-1"
+            draggable="false"
+            onclick="getFocus(event)"
+          />
+        </div>
+        <div id="thumbnails">
+          <div class="image-container selected" onclick="changeFocus(1,event)">
+            <img
+              src="./images/image-product-1-thumbnail.jpg"
+              alt="image-product-1-thumbnail"
+              class="thumbnail"
+              draggable="false"
+            />
+          </div>
+          <div class="image-container" onclick="changeFocus(2,event)">
+            <img
+              src="./images/image-product-2-thumbnail.jpg"
+              alt="image-product-2-thumbnail"
+              class="thumbnail"
+              draggable="false"
+            />
+          </div>
+          <div class="image-container" onclick="changeFocus(3,event)">
+            <img
+              src="./images/image-product-3-thumbnail.jpg"
+              alt="image-product-3-thumbnail"
+              class="thumbnail"
+              draggable="false"
+            />
+          </div>
+          <div class="image-container" onclick="changeFocus(4,event)">
+            <img
+              src="./images/image-product-4-thumbnail.jpg"
+              alt="image-product-4-thumbnail"
+              class="thumbnail"
+              draggable="false"
+            />
+          </div>
+        </div>
+      </section>
+      <section id="product-infos">
+        <h2 class="product-compagny">Sneaker Company</h2>
+        <h1 class="product-name">Fall Limited Edition Sneakers</h1>
+        <p class="product-description">
+          These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.
+        </p>
+        <p class="product-price">
+          $125.00 <span class="product-discount">50%</span>
+        </p>
+        <p class="original-price">$250.00</p>
+        <div id="controls-purchase">
+          <div id="controls-button">
+            <button onclick="sub()" class="controls">
+              <img src="./images/icon-minus.svg" alt="minus-button" />
+            </button>
+            <input
+              type="number"
+              name="count_value"
+              readonly
+              id="count-value"
+              value="0"
+              min="0"
+            />
+            <button onclick="add()" class="controls">
+              <img src="./images/icon-plus.svg" alt="plus-button" />
+            </button>
+          </div>
+          <button id="add-cart" onclick="addToCart()">
+            <img src="./images/icon-cart.svg" alt="cart-icon" />
+            <span>Add to cart</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
